@@ -1,0 +1,35 @@
+// Method Overloading 
+ import java.util.*; 
+class Student{ 
+ public int length; 
+ public int breadth; 
+ public int side; 
+ Scanner sc = new Scanner(System.in); 
+ Student(){ 
+ System.out.println("Default Constructor..."); 
+ System.out.println("Enter the side: "); 
+ side = sc.nextInt(); 
+ } 
+ Student(int l, int b){ 
+ System.out.println("Enter the length: "); 
+ l = sc.nextInt(); 
+ System.out.println("Enter the breadth: "); 
+ b = sc.nextInt(); 
+ System.out.println("Area of rectangle: "+Area(l,b)); 
+ } 
+ public void Area(){ 
+ System.out.println("Area of Square: "+side*side); 
+ }
+public int Area(int l , int b){ 
+ int result = l*b; 
+ return result; 
+ } 
+} 
+public class Exp2{ 
+ public static void main(String []args){ 
+ System.out.println("Method Overloading"); 
+ Student s1 = new Student(); 
+ s1.Area(); 
+ Student s2 = new Student(1,1); 
+ }  
+}

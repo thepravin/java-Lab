@@ -1,0 +1,71 @@
+
+import java.util.*;
+
+interface Car {
+    void run();
+    void speed();
+}
+
+interface Bike extends Car {
+    void millage();
+    void prize();
+}
+
+class Rollsroyles implements Bike {
+    String name;
+    int model;
+    int speed;
+    long millage;
+    float prize;
+    Scanner sc = new Scanner(System.in);
+
+    public Rollsroyles() {
+        System.out.print("Enter the name of car: ");
+        name = sc.nextLine();
+        System.out.print("Enter the model of car: ");
+        model = sc.nextInt();
+        System.out.print("Enter the speed of car: ");
+        speed = sc.nextInt();
+        System.out.print("Enter the millage of car: ");
+        millage = sc.nextLong();
+        System.out.print("Enter the prize of car: ");  // Fixed println statement
+        prize = sc.nextFloat();
+    }
+
+    public void details() {
+        System.out.println(" Car Information: ");
+        System.out.println("Name of Car : " + name);
+        System.out.println("Model of car :" + model);
+    }
+
+    public void run() {
+        System.out.println("Car is running very fast in highway......");
+    }
+
+    public void speed() {
+        System.out.println("Car running on highway with speed of " + speed + " km/hr");
+    }
+
+    public void millage() {
+        System.out.println("During running it millage is " + millage + " km/ltr");
+    }
+
+    public void prize() {
+        System.out.println("According to all info prize of car is " + prize + " in lakhs");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Rollsroyles d = new Rollsroyles();
+        System.out.println("-----------------------------------------------");
+        d.details();
+        System.out.println();
+        System.out.println("Some Additional Information....");
+        d.run();
+        d.speed();
+        d.millage();
+        d.prize();
+        System.out.println("-----------------------------------------------");
+    }
+}

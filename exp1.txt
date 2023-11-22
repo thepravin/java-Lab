@@ -1,0 +1,34 @@
+import java.util.*;
+class rectangle
+{
+    int length, breadth, area;
+    rectangle()
+    {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Enter length of rectangle : ");
+        length = scan.nextInt();
+        System.out.print("Enter breadth of rectangle : ");
+        breadth = scan.nextInt();
+        this.Area();
+    }
+    void Area()
+    {
+        this.area = this.length * this.breadth;
+    }
+    void Show()
+    {
+        System.out.print("Length = "+ this.length+ "\n");
+        System.out.print("Breadth = "+ this.breadth+ "\n");
+        System.out.print("Area = "+ this.area+ "\n");
+    }
+
+}
+
+class exp1
+{
+    public static void main(String args[])
+    {
+        rectangle r1 = new rectangle();
+        r1.Show();
+    }
+}

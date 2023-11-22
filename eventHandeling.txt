@@ -1,0 +1,30 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+public class Main {
+public static void main(String[] args) {
+// Create a JFrame
+JFrame frame = new JFrame("Event Handling ");
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+frame.setSize(300, 150);
+// Create a JPanel to hold components
+JPanel panel = new JPanel();
+frame.add(panel);
+// Create a button
+JButton button = new JButton("Don't Touch Me ");
+panel.add(button);
+// Create a label to display a message
+JLabel label = new JLabel("Event will be shown here");
+panel.add(label);
+// Add an ActionListener to the button
+button.addActionListener(new ActionListener() {
+public void actionPerformed(ActionEvent e) {
+// This code will be executed when the button is clicked
+label.setText("I am Clicked Clicked!");
+JOptionPane.showMessageDialog(frame, " I am hurt ! ");
+}
+});
+frame.setVisible(true);
+}
+}

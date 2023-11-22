@@ -1,0 +1,41 @@
+import java.io.*;
+import java.util.*;
+class Student {
+ int rollNo;
+ String name;
+ String dept;
+ Double cgpa;
+ Student() {
+ Scanner sc1 = new Scanner(System.in);
+ System.out.print("Enter Roll No:");
+ rollNo = sc1.nextInt();
+ System.out.print("Enter Name:");
+ name = sc1.next();
+ System.out.print("Enter Department name:");
+ dept = sc1.next();
+ System.out.print("Enter CGPA:");
+ cgpa = sc1.nextDouble();
+ }
+}
+public class f {
+ public static void main(String args[]) throws Exception {
+ Scanner sc = new Scanner(System.in);
+ String choice;
+ File file = new File("studentData.txt");
+ file.createNewFile();
+ OutputStream fos = new FileOutputStream(file, true);
+ PrintStream ps = new PrintStream(fos);
+ do {
+ Student student = new Student();
+ ps.print(student.rollNo);
+ ps.print("\t" + student.name);
+ ps.print("\t" + student.dept);
+ ps.println("\t\t" + student.cgpa);
+ System.out.print("Record inserted successfully!\n");
+ System.out.print("Do you want to add another student? (yes/no): ");
+ choice = sc.next();
+ } while (choice.equalsIgnoreCase("yes"));
+ fos.close();
+ ps.close();
+ }
+}

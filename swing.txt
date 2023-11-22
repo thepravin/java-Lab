@@ -1,0 +1,60 @@
+import java.awt.*; 
+import java.awt.event.AcƟonEvent;
+import java.awt.event.AcƟonListener;
+import javax.swing.JApplet; 
+import javax.swing.JBuƩon;
+import javax.swing.JLabel; 
+import javax.swing.JPasswordField; 
+import javax.swing.JTextField; 
+import javax.swing.SwingUƟliƟes
+public class Simple extends JApplet { 
+ private JTextField loginField; 
+ private JPasswordField passwordField; 
+ public void init() { 
+ setSize(400, 200); 
+ JPanel centerPanel = new JPanel(new GridBagLayout()); 
+ GridBagConstraints gbc = new GridBagConstraints(); 
+ gbc.insets = new Insets(5, 5, 5, 5); 
+ JLabel welcomeLabel = new JLabel("Welcome! Please enter your login credenƟals.");
+ gbc.gridx = 0; 
+ gbc.gridy = 0; 
+ gbc.gridwidth = 2; 
+ centerPanel.add(welcomeLabel, gbc); 
+ JLabel loginLabel = new JLabel("Login ID:"); 
+ gbc.gridx = 0; 
+ gbc.gridy = 1; 
+ gbc.gridwidth = 1; 
+ centerPanel.add(loginLabel, gbc); 
+ loginField = new JTextField(15); 
+ gbc.gridx = 1; 
+ gbc.gridy = 1; 
+ centerPanel.add(loginField, gbc); 
+ JLabel passwordLabel = new JLabel("Password:"); 
+ gbc.gridx = 0; 
+ gbc.gridy = 2; 
+ centerPanel.add(passwordLabel, gbc); 
+ passwordField = new JPasswordField(15); 
+ gbc.gridx = 1; 
+ gbc.gridy = 2; 
+ centerPanel.add(passwordField, gbc); 
+ JBuƩon loginBuƩon = new JBuƩon("Login");
+ gbc.gridx = 0; 
+ gbc.gridy = 3; 
+ gbc.gridwidth = 2; 
+ centerPanel.add(loginBuƩon, gbc);
+ loginBuƩon.addAcƟonListener(new AcƟonListener() {
+ public void acƟonPerformed(AcƟonEvent e) {
+ String loginID = loginField.getText(); 
+ char[] passwordChars = passwordField.getPassword(); 
+ String password = new String(passwordChars); 
+ // You can add your login validaƟon logic here
+ if (loginID.equals("your_username") && password.equals("your_password")) { 
+ showStatus("Login successful!"); 
+ } else { 
+ showStatus("Login failed. Please try again."); 
+ } 
+ } 
+ }); 
+ add(centerPanel); 
+ } 
+} 

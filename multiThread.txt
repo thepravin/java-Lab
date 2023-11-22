@@ -1,0 +1,33 @@
+class ThreadEven extends Thread { 
+ public void run() { 
+ for (; Main.counter <= 10;) { 
+ synchronized (Main.class) { 
+ if (Main.counter % 2 == 0) { 
+ System.out.println("Even Thread: " + Main.counter); 
+ Main.counter++; 
+ } 
+ } 
+ } 
+ } 
+} 
+class ThreadOdd extends Thread { 
+ public void run() { 
+ for (; Main.counter <= 10;) { 
+ synchronized (Main.class) { 
+ if (Main.counter % 2 != 0) { 
+ System.out.println("Odd Thread: " + Main.counter); 
+ Main.counter++; 
+ } 
+ } 
+ } 
+ } 
+} 
+public class Main { 
+ static int counter = 1;
+ public static void main(String args[]) {
+ ThreadEven ET = new ThreadEven(); 
+ ThreadOdd OT = new ThreadOdd(); 
+ ET.start(); 
+ OT.start(); 
+ }
+}
